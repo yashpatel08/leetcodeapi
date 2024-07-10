@@ -1,87 +1,56 @@
-const query = `
-  query getUserProfile($username: String!) {
+const query = `#graphql
+query getUserProfile($username: String!) {
     allQuestionsCount {
-      difficulty
-      count
+        difficulty
+        count
     }
     matchedUser(username: $username) {
-      username
-      githubUrl
-      twitterUrl
-      linkedinUrl
-      contributions {
-        points
-        questionCount
-        testcaseCount
-      }
-      profile {
-        reputation
-        ranking
-        badges {
-          name
-          icon
+        username
+        githubUrl
+        twitterUrl
+        linkedinUrl
+        contributions {
+            points
+            questionCount
+            testcaseCount
         }
-        upcomingBadges {
-          name
-          icon
+        profile {
+            realName
+            userAvatar
+            birthday
+            ranking
+            reputation
+            websites
+            countryName
+            company
+            school
+            skillTags
+            aboutMe
+            starRating
         }
-        activeBadge {
-          id
-          displayName
-          icon
-          creationDate
+        submitStats {
+            totalSubmissionNum {
+                difficulty
+                count
+                submissions
+            }
+            acSubmissionNum {
+                difficulty
+                count
+                submissions
+            }
         }
-        realName
-        userAvatar
-        birthday
-        websites
-        countryName
-        company
-        school
-        skillTags
-        aboutMe
-        starRating
-      }
-      submitStats {
-        acSubmissionNum {
-          difficulty
-          count
-          submissions
-        }
-        totalSubmissionNum {
-          difficulty
-          count
-          submissions
-        }
-      }
-      submissionCalendar
+        submissionCalendar
     }
     recentSubmissionList(username: $username, limit: 20) {
-      title
-      titleSlug
-      timestamp
-      statusDisplay
-      lang
+        title
+        titleSlug
+        timestamp
+        statusDisplay
+        lang
     }
-    matchedUserStats: matchedUser(username: $username) {
-      submitStats: submitStatsGlobal {
-        acSubmissionNum {
-          difficulty
-          count
-          submissions
-          __typename
-        }
-        totalSubmissionNum {
-          difficulty
-          count
-          submissions
-          __typename
-        }
-        __typename
-      }
-    }
-  }
-`;
+}`;
+
 
 
 // format data 
