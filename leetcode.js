@@ -8,9 +8,13 @@ const query = `
       contributions {
         points
       }
-      profile {
+     profile {
         reputation
         ranking
+        badges {
+          name
+          icon
+        }
       }
       submissionCalendar
       submitStats {
