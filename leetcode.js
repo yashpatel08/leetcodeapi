@@ -72,7 +72,8 @@ const formatData = (data) => {
         reputation: data.matchedUser.profile.reputation,
         submissionCalendar: JSON.parse(data.matchedUser.submissionCalendar),
         recentSubmissions: data.recentSubmissionList,
-        matchedUserStats: data.matchedUser.submitStats
+        matchedUserStats: data.matchedUser.submitStats,
+        badges: data.matchedUser.profile.badges
     }
     return sendData;
 }
